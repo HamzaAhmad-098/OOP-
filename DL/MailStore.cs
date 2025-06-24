@@ -18,7 +18,6 @@ namespace MessagingSystem.DL
         public List<Mail> getAllMail(string userName)
         {
            return store.FindAll(mail => mail.to == userName);
-            //LINQ ; Lambda Operator
             
         }
     }
