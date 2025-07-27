@@ -3,7 +3,6 @@ import sys
 import random
 import collections
 
-# --- Game constants (not window/layout) ---
 ROWS, COLS = 21, 21
 FPS = 30
 
@@ -16,8 +15,7 @@ GRAY = (40, 44, 52)
 GREEN = (50, 205, 50)
 ORANGE = (255, 170, 30)
 
-# --- Dynamic layout variables ---
-WIDTH, HEIGHT = 800, 800  # Initial size
+WIDTH, HEIGHT = 800, 800 
 BAR_HEIGHT = 60
 CELL_SIZE = 1  # Will be set by recalc_layout
 MAZE_WIDTH = 1
@@ -29,7 +27,6 @@ def recalc_layout(width, height):
     global WIDTH, HEIGHT, BAR_HEIGHT, CELL_SIZE, MAZE_WIDTH, MAZE_HEIGHT, MAZE_X, MAZE_Y
     WIDTH, HEIGHT = width, height
     BAR_HEIGHT = max(int(HEIGHT * 0.08), 60)
-    # Maximize cell size so maze fits in window below top bar, and is square
     max_cell_w = WIDTH // COLS
     max_cell_h = (HEIGHT - BAR_HEIGHT) // ROWS
     CELL_SIZE = min(max_cell_w, max_cell_h)
@@ -59,7 +56,7 @@ level_won = False
 level_time = 30 * FPS
 main_path = []
 
-MOVE_SPEED = 1  # Will be set by recalc_layout
+MOVE_SPEED = 1  
 sneezing = False
 SNEEZE_DURATION = 30
 sneeze_countdown = 0
@@ -100,7 +97,6 @@ def load_images():
     key_img = scale_img("images/key.png")
 
 def rescale_images():
-    # Call after resize!
     global player_img, player_sneeze_img, tissue_img, germ_img, door_img, key_img
     def scale_img(img):
         return pygame.transform.smoothscale(img, (CELL_SIZE, CELL_SIZE))
